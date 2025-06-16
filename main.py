@@ -13,11 +13,6 @@ song_recommendations = {
             ("밤이 깊었네", "아이유"),
             ("취중고백", "김민석 (멜로망스)"),
         ],
-        "POP": [
-            ("고백", "10cm"),
-            ("나의 오랜 연인에게", "아이유"),
-            ("이 밤을 빌려 말해요", "임창정"),
-        ],
         "댄스": [
             ("Pink Venom", "BLACKPINK"),
             ("롤린 (Rollin')", "브레이브걸스"),
@@ -44,11 +39,6 @@ song_recommendations = {
             ("All of Me", "John Legend"),
             ("Someone Like You", "Adele"),
             ("When We Were Young", "Adele"),
-        ],
-        "POP": [
-            ("Flowers", "Miley Cyrus"),
-            ("Anti-Hero", "Taylor Swift"),
-            ("Calm Down", "Rema & Selena Gomez"),
         ],
         "댄스": [
             ("I'm Good (Blue)", "David Guetta & Bebe Rexha"),
