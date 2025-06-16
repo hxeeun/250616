@@ -1,47 +1,42 @@
 import streamlit as st
 
-# 노래 추천 데이터
+# 2025년 상반기 최신곡 기반 노래 추천 데이터
 song_recommendations = {
     "R&B": [
-        ("Peaches", "Justin Bieber"),
-        ("Leave The Door Open", "Bruno Mars"),
-        ("Love on the Brain", "Rihanna"),
+        ("Ecstasy", "Ciara"),
+        ("Offa Me", "Davido feat. Victoria Monét"),
+        ("Bliss", "Tyla"),
     ],
     "발라드": [
-        ("너를 만나", "폴킴"),
-        ("취중고백", "김민석 (멜로망스)"),
-        ("비도 오고 그래서", "헤이즈"),
+        ("그때 그 아인", "임영웅"),
+        ("밤이 깊었네", "아이유"),
     ],
     "POP": [
-        ("Shape of You", "Ed Sheeran"),
-        ("Blinding Lights", "The Weeknd"),
-        ("Levitating", "Dua Lipa"),
+        ("Flowers", "Miley Cyrus"),
+        ("Anti-Hero", "Taylor Swift"),
+        ("Calm Down", "Rema & Selena Gomez"),
     ],
     "댄스": [
-        ("IDOL", "BTS"),
-        ("New Jeans", "NewJeans"),
-        ("CHEER UP", "TWICE"),
+        ("Pink Venom", "BLACKPINK"),
+        ("I'm Good (Blue)", "David Guetta & Bebe Rexha"),
     ],
     "힙합": [
         ("Sicko Mode", "Travis Scott"),
         ("VVS", "MIRANI, Munchman, Khundi Panda, JUSTHIS"),
-        ("회전목마", "릴보이, 원슈타인, 죠지"),
     ],
     "인디": [
         ("밤하늘의 별을", "양정승"),
         ("고백", "10cm"),
-        ("너의 바다", "잔나비"),
     ],
 }
 
-# Streamlit 앱 구성
-st.title("🎵 장르별 노래 추천기")
+st.title("🎵 2025 최신곡 장르별 노래 추천기")
 st.write("원하는 장르를 선택한 뒤, 버튼을 눌러보세요!")
 
-# 장르 선택
+# 장르 선택 박스
 genre = st.selectbox("장르를 선택하세요:", list(song_recommendations.keys()))
 
-# 버튼을 눌렀을 때만 추천 노래 표시
+# 추천 버튼
 if st.button("추천 받기 🎁"):
     st.subheader(f"🎧 {genre} 추천 노래")
     for title, artist in song_recommendations[genre]:
