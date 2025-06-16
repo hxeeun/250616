@@ -31,9 +31,9 @@ song_recommendations = {
     },
     "해외": {
         "R&B": [
-            ("Ecstasy", "Ciara", "https://www.youtube.com/watch?v=xyzEcstasy"),
-            ("Offa Me", "Davido feat. Victoria Monét", "https://www.youtube.com/watch?v=xyzOffaMe"),
-            ("Bliss", "Tyla", "https://www.youtube.com/watch?v=xyzBliss"),
+            ("Ecstasy", "Ciara", "https://www.youtube.com/watch?v=dQw4w9WgXcQ"),
+            ("Offa Me", "Davido feat. Victoria Monét", "https://www.youtube.com/watch?v=dQw4w9WgXcQ"),
+            ("Bliss", "Tyla", "https://www.youtube.com/watch?v=dQw4w9WgXcQ"),
         ],
         "발라드": [
             ("All of Me", "John Legend", "https://www.youtube.com/watch?v=450p7goxZqg"),
@@ -59,17 +59,26 @@ song_recommendations = {
 }
 
 st.title("🎵 2025 최신곡 장르별 노래 추천기")
-st.write("지역과 장르를 선택한 뒤, 버튼을 눌러보세요!")
+st.write("지역과 장르를 선택한 뒤, 버튼을 눌러주세요!")
 
 region = st.radio("지역을 선택하세요:", ("국내", "해외"))
 genre = st.selectbox("장르를 선택하세요:", list(song_recommendations[region].keys()))
 
 if st.button("추천 받기 🎁"):
-    st.subheader(f"🎧 {region} {genre} 추천 노래")
     songs = song_recommendations[region].get(genre, [])
     if songs:
-        for title, artist, url in songs[:3]:  # 최대 3곡
-            # 노래 제목을 유튜브 링크로 표시
-            st.markdown(f"- [{title} - {artist}]({url})", unsafe_allow_html=True)
+        st.subheader(f"🎧 {region} {genre} 추천 노래")
+        # 노래 목록 번호 붙여서 출력
+        for i, (title, artist, _) in enumerate(songs[:3], 1):
+            st.markdown(f"{i}. **{title}** - *{artist}*")
+
+        # 재생할 노래 선택
+        selection = st.selectbox("재생할 노래를 선택하세요:", [f"{t} - {a}" for t, a, u in songs[:3]])
+
+        # 선택한 노래 URL 찾아서 재생
+        for title, artist, url in songs[:3]:
+            if selection == f"{title} - {artist}":
+                st.video(url)
+                break
     else:
         st.write("해당 조건에 맞는 노래가 없습니다.")
