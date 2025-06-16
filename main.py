@@ -12,7 +12,7 @@ song_recommendations = {
         ("취중고백", "김민석 (멜로망스)"),
         ("비도 오고 그래서", "헤이즈"),
     ],
-    "팝": [
+    "POP": [
         ("Shape of You", "Ed Sheeran"),
         ("Blinding Lights", "The Weeknd"),
         ("Levitating", "Dua Lipa"),
@@ -36,13 +36,13 @@ song_recommendations = {
 
 # Streamlit 앱 구성
 st.title("🎵 장르별 노래 추천기")
-st.write("원하는 장르를 선택하면 노래를 추천해드릴게요!")
+st.write("원하는 장르를 선택한 뒤, 버튼을 눌러보세요!")
 
 # 장르 선택
 genre = st.selectbox("장르를 선택하세요:", list(song_recommendations.keys()))
 
-# 선택된 장르에 따른 노래 추천
-if genre:
+# 버튼을 눌렀을 때만 추천 노래 표시
+if st.button("추천 받기 🎁"):
     st.subheader(f"🎧 {genre} 추천 노래")
     for title, artist in song_recommendations[genre]:
         st.markdown(f"- **{title}** - *{artist}*")
